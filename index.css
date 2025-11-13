@@ -179,7 +179,7 @@ button {
     margin: auto;
     height: 300px;
     max-width: 420px;
-    background-color: white;
+    background-color: #f8f8f8;
     border-radius: 5px;
     text-align: center;
 }
