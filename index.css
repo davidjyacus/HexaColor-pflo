@@ -1,0 +1,166 @@
+body {
+    margin: auto;
+    padding: 0;
+    font-family: "Exo", sans-serif;
+    background-color: #202020;
+    color: #202020;
+}
+
+/*typography and layout*/
+
+.header {
+    margin: 0 auto;
+    max-width: 550px;
+    height: 120px;
+    margin-bottom: 1.25em;
+    padding-bottom: 1.5em;
+    text-align: center;
+    background-color: #f8f8f8;
+    
+}
+
+h1 {
+    margin-top: 0.2em;
+    margin-bottom: 0;
+}
+
+.header p {
+    margin: 0 0.4em;
+}
+
+main {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    background-color: #f8f8f8;
+    grid-area: main;
+    max-width: 550px;
+    height: 90px;
+}
+
+#seed-color,
+select,
+button {
+    cursor: pointer;
+    font-family: "Exo", sans-serif;
+    margin: 0.625em;  
+}
+
+#seed-color {
+    width: 90px;
+    height: 40px;
+}
+
+select {
+    width: 220px;
+}
+
+button {
+    width: 90px;
+    height: 40px;
+}
+
+/*label[for="select-menu"] {
+    visibility: hidden;
+}*/
+
+#colors {
+    margin: auto;
+    max-width: 550px;
+    height: 550px;
+    display: grid;
+    grid-template-areas: 
+            "main main main main main"
+            "dis1 dis2 dis3 dis4 dis5"
+            "ftr1 ftr2 ftr3 ftr4 ftr5";
+}
+
+.color-display {
+    height: 415px;
+    position: relative;
+    background-color: #d3d3d3;
+}
+
+#dis1 {
+    grid-area: dis1;
+    background-color: #22bc17;
+}
+#dis2 {
+    grid-area: dis2;
+    background-color:#17C23F
+}
+#dis3 {
+    grid-area: dis3;
+    background-color:#16c775;
+}
+#dis4 {
+    grid-area: dis4;
+    background-color:#15cdaf;
+}
+#dis5 {
+    grid-area: dis5;
+    background-color:#15B9D3;
+}
+
+.hex-footer {
+    height: 45px;
+    text-align: center;
+    background-color: #f8f8f8;
+    position: relative;
+}
+
+#hex-value {
+    cursor: pointer; 
+}
+
+#ftr1 {
+    grid-area: ftr1;
+}
+#ftr2 {
+    grid-area: ftr2;
+}
+#ftr3 {
+    grid-area: ftr3;
+}
+#ftr4 {
+    grid-area: ftr4;
+}
+#ftr5 {
+    grid-area: ftr5;
+}
+
+/*hover effects*/
+
+#hex-value:hover {
+    scale: 1.05;
+    z-index: 10;
+}
+
+/*tooltip styling*/
+
+.tooltiptext {
+    visibility: hidden;
+    width: 100px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 0.3125em 0;
+    position: absolute;
+    z-index: 1;
+    bottom: 102%; /* Positions the tooltip above the text */
+    left: 50%;
+    margin-left: -3.125em;
+    opacity: 0.8;
+}
+
+.tooltiptext::after {
+  content: " ";
+  position: absolute;
+  top: 100%; /* At the bottom of the tooltip */
+  left: 50%;
+  margin-left: -0.3125em;
+  border-width: 0.3125em;
+  border-style: solid;
+  border-color: black transparent transparent transparent;
+}

@@ -1,0 +1,91 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="index.css">
+        <title>HexaColor</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Exo:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        
+        <div class="header">
+            <h1>HexaColor</h1>
+            <p>Welcome to HexaColor, a simple tool for identifying and 
+                visualizing colors using their hexadecimal codes.</p>
+            <p>Simply choose a seed color, a color scheme mode, and click
+                on the provided button to get the color scheme.</p>
+        </div>
+        
+        <div id="colors">
+            
+            <main>
+                <div class="color-input">
+
+                    <input type="color" id="seed-color">
+                    
+                    <!--<label for="select-menu">Select Menu</label>-->
+                    <select name="select-menu" id="select-menu">
+                        <option value="monochrome">Monochrome</option>
+                        <option value="monochrome-dark">Monochrome-dark</option>
+                        <option value="monochrome-light">Monochrome-light</option>
+                        <option value="analogic">Analogic</option>
+                        <option value="complement">Complement</option>
+                        <option value="analogic-complement">Analogic-complement</option>
+                        <option value="triad">Triad</option> 
+                    </select>
+                    
+                    <button id="get-color-scheme">Get color scheme</button>
+                    
+                </div>
+            </main>
+              
+                <div id="dis1" class="color-display">
+                    <span class="tooltiptext"></span>
+                </div>
+                <div id="dis2" class="color-display">
+                    <span class="tooltiptext"></span>
+                </div>
+                <div id="dis3" class="color-display">
+                    <span class="tooltiptext"></span>
+                </div>
+                <div id="dis4" class="color-display">
+                    <span class="tooltiptext"></span>
+                </div>
+                <div id="dis5" class="color-display">
+                    <span class="tooltiptext"></span>
+                </div>
+                
+                
+                <div id="ftr1" class="hex-footer">
+                    <p id="hex-value">
+                        <span class="tooltiptext"></span>
+                    </p>
+                </div>
+                <div id="ftr2" class="hex-footer">
+                    <p id="hex-value">
+                        <span class="tooltiptext"></span>
+                    </p>
+                </div>
+                <div id="ftr3" class="hex-footer">
+                    <p id="hex-value">
+                        <span class="tooltiptext"></span>
+                    </p>
+                </div>
+                <div id="ftr4" class="hex-footer">
+                    <p id="hex-value">
+                        <span class="tooltiptext"></span>
+                    </p>
+                </div>
+                <div id="ftr5" class="hex-footer">
+                    <p id="hex-value">
+                        <span class="tooltiptext"></span>
+                    </p>
+                </div>
+            
+        </div>
+        
+        <script src="index.js"></script>
+    </body>
+</html>
