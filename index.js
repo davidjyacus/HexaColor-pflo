@@ -59,6 +59,12 @@ document.getElementById("get-color-scheme").addEventListener("click", function()
     }
 })
 
+document.getElementById("close-btn").addEventListener("click", function() {
+    document.getElementById("exp-modal").style.display = "none";
+    document.getElementById("header").style.backgroundColor ="#f8f8f8";
+    document.getElementById("colors").style.backgroundColor ="#f8f8f8";
+});
+
 /* RGB to HEX conversion function from Nimish Prabhu: 
 https://nimishprabhu.com/convert-rgb-to-hex-and-hex-to-rgb-javascript-online-demo.html */
 
