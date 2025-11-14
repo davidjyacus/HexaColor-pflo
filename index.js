@@ -28,7 +28,7 @@ document.getElementById("get-color-scheme").addEventListener("click", function()
         colorDisplay[i].style.zIndex = "0";
         })
         /*touch events for mobile devices*/
-        /colorDisplay[i].addEventListener("touchstart", function() {
+        colorDisplay[i].addEventListener("touchstart", function() {
         colorDisplay[i].style.scale = "1.05";
         colorDisplay[i].style.zIndex = "10";
         })
