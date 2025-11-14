@@ -37,6 +37,11 @@ document.getElementById("get-color-scheme").addEventListener("click", function()
         colorDisplay[i].style.zIndex = "0";
         })
 
+        colorDisplay[i].addEventListener("touchend", function() {
+        colorDisplay[i].style.scale = "1";
+        colorDisplay[i].style.zIndex = "0";
+        })
+
         colorDisplay[i].style.cursor = "pointer";
     }
 
