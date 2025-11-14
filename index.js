@@ -51,6 +51,9 @@ document.getElementById("get-color-scheme").addEventListener("click", function()
         tooltip.style.visibility = "visible";
         setTimeout(() => {
             tooltip.style.visibility = "hidden";
+            /*reset scale and z-index in case of mobile touch*/
+            colorDisplay[i].style.scale = "1";
+            colorDisplay[i].style.zIndex = "0";
         }, 1000);
         })
     }
