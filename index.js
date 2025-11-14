@@ -32,7 +32,7 @@ document.getElementById("get-color-scheme").addEventListener("click", function()
         colorDisplay[i].style.scale = "1.05";
         colorDisplay[i].style.zIndex = "10";
         })
-        colorDisplay[i].addEventListener("touchmove", function() {
+        colorDisplay[i].addEventListener("touchend", function() {
         colorDisplay[i].style.scale = "1";
         colorDisplay[i].style.zIndex = "0";
         })
