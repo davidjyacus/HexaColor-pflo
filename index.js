@@ -19,23 +19,22 @@ document.getElementById("get-color-scheme").addEventListener("click", function()
         })
 
     for (let i = 0; i < colorDisplay.length; i++) {
-        colorDisplay[i].addEventListener("mouseover", function() {
-        colorDisplay[i].style.scale = "1.05";
-        colorDisplay[i].style.zIndex = "10";
-        })
-        colorDisplay[i].addEventListener("mouseout", function() {
-        colorDisplay[i].style.scale = "1";
-        colorDisplay[i].style.zIndex = "0";
-        })
-        /*touch events for mobile devices*/
-        colorDisplay[i].addEventListener("touchstart", function() {
-        colorDisplay[i].style.scale = "1.05";
-        colorDisplay[i].style.zIndex = "10";
-        })
-        colorDisplay[i].addEventListener("touchmove", function() {
-        colorDisplay[i].style.scale = "1";
-        colorDisplay[i].style.zIndex = "0";
-        })
+        
+        function setScale() {
+            colorDisplay[i].style.scale = "1.05";
+            colorDisplay[i].style.zIndex = "10";
+        }
+        colorDisplay[i].addEventListener("mouseover", setScale);
+        colorDisplay[i].addEventListener("touchstart", setScale);
+
+        function resetScale() {
+            colorDisplay[i].style.scale = "1";
+            colorDisplay[i].style.zIndex = "0";
+        }
+
+        colorDisplay[i].addEventListener("mouseout", resetScale);
+        colorDisplay[i].addEventListener("touchmove", resetScale);
+        
         colorDisplay[i].style.cursor = "pointer";
     }
 
