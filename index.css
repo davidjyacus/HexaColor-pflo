@@ -175,8 +175,8 @@ select {
     z-index: 20;
     left: 0;
     right: 0;
-    top: 0;
-    bottom: 12em;
+    top: -12em;
+    bottom: 0;
     margin: auto;
     height: 380px;
     max-width: 300px;
