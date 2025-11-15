@@ -189,7 +189,7 @@ select {
     margin: 1em;
 }
 
-@media(min-width: 769px) {
+@media(min-width: 768px) {
     
     main {
         height: 90px;
