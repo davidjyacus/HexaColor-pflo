@@ -175,10 +175,10 @@ select {
     z-index: 20;
     left: 0;
     right: 0;
-    top: -12em;
+    top: -20em;
     bottom: 0;
     margin: auto;
-    height: 380px;
+    height: 400px;
     max-width: 300px;
     background-color: #f8f8f8;
     border-radius: 5px;
