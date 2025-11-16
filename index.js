@@ -71,6 +71,23 @@ document.getElementById("close-btn").addEventListener("click", function() {
     document.getElementById("colors").style.backgroundColor ="#f8f8f8";
 });
 
+/*media query experiment*/
+const mq1 = window.matchMedia("(min-width: 768px)");
+function mobileMq1(mq1) {
+    if (mq1.matches) {
+        document.getElementById("title").innerHTML = "<h1>HexaColor</h1>";
+        /*document.getElementById("header-txt").style.margin = "0 0.4em";*/
+    } else {
+        document.getElementById("title").innerText = "";
+        document.getElementById("header-txt").style.backgroundColor = "pink";
+    }
+    
+}
+/*the following is necessary...but why?*/
+mobileMq1(mq1);
+mq1.addEventListener("change", mobileMq1);
+/*mq experiment ends here*/
+
 /* RGB to HEX conversion function from Nimish Prabhu: 
 https://nimishprabhu.com/convert-rgb-to-hex-and-hex-to-rgb-javascript-online-demo.html */
 
