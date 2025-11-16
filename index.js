@@ -76,10 +76,8 @@ const mq1 = window.matchMedia("(min-width: 768px)");
 function mobileMq1(mq1) {
     if (mq1.matches) {
         document.getElementById("title").innerHTML = "<h1>HexaColor</h1>";
-        /*document.getElementById("header-txt").style.margin = "0 0.4em";*/
     } else {
         document.getElementById("title").innerText = "";
-        document.getElementById("header-txt").style.backgroundColor = "pink";
     }
     
 }

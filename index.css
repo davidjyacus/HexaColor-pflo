@@ -29,8 +29,8 @@ h1 {
     margin-bottom: 0;
 }
 
-#header p {
-    margin: 0 0.4em;
+#header-txt {
+    border: blue 1px dashed;
 }
 
 main {
@@ -195,6 +195,10 @@ select {
         height: 90px;
     }
     
+    #header p {
+        margin: 0 0.4em;
+}
+
     .color-input {
     display: flex;
     flex-direction: row;
