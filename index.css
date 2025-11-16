@@ -13,7 +13,7 @@ body {
 
 #header {
     margin: 0 auto;
-    max-width: 550px;
+    max-width: 320px;
     height: 140px;
     margin-bottom: 1.25em;
     padding-bottom: 1.5em;
@@ -33,9 +33,20 @@ h1 {
     border: blue 1px dashed;
 }
 
+#colors {
+    margin: auto;
+    max-width: 320px;
+    height: 550px;
+    display: grid;
+    grid-template-areas: 
+            "main main main main main"
+            "dis1 dis2 dis3 dis4 dis5"
+            "ftr1 ftr2 ftr3 ftr4 ftr5";
+}
+
 main {
     grid-area: main;
-    max-width: 550px;
+    max-width: 320px;
     height: 160px;
 }
 
@@ -66,26 +77,19 @@ select {
     visibility: hidden;
 }*/
 
-#colors {
-    margin: auto;
-    max-width: 550px;
-    height: 550px;
-    display: grid;
-    grid-template-areas: 
-            "main main main main main"
-            "dis1 dis2 dis3 dis4 dis5"
-            "ftr1 ftr2 ftr3 ftr4 ftr5";
+.color-display,
+.hex-footer {
+    position: relative;
+    max-width: 320px;
 }
 
 .color-display {
     height: 340px;
-    position: relative;
 }
 
 .hex-footer {
     height: 45px;
     text-align: center;
-    position: relative;
 }
 
 #hex-value {
@@ -190,27 +194,40 @@ select {
 }
 
 @media(min-width: 768px) {
-    
+    #colors {
+        max-width: 550px;
+    }
+
     main {
         height: 90px;
     }
     
+#header {
+        max-width: 550px;
+    }
+
     #header p {
         margin: 0 0.4em;
-}
+    }
 
     .color-input {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 15px;
-    padding: 20px 24px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 15px;
+        padding: 20px 24px;
     }
 
     #seed-color,
     select,
     button {
         height: 40px; 
+    }
+
+    main,
+    .color-display,
+    .hex-footer {
+        max-width: 550px;
     }
 
     .color-display {
