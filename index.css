@@ -90,11 +90,12 @@ select {
 }
 
 .color-display {
-    height: 340px;
+    height: 385px;
     border: red 1px dashed;
 }
 
 .hex-footer {
+    visibility: hidden;
     height: 45px;
     text-align: center;
     border: green 1px dashed;
@@ -210,7 +211,7 @@ select {
         height: 90px;
     }
     
-#header {
+    #header {
         max-width: 550px;
     }
 
@@ -240,5 +241,9 @@ select {
 
     .color-display {
         height: 415px;
+    }
+
+    .hex-footer {
+    visibility: visible;
     }
 }

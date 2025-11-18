@@ -25,6 +25,23 @@ document.getElementById("get-color-scheme").addEventListener("click", function()
         }
         colorDisplay[i].addEventListener("mouseover", setScale);
         colorDisplay[i].addEventListener("touchstart", setScale);
+        
+        /*experiment for tooltip in mobile format
+        const mq2 = window.matchMedia("(max-width: 767px)");
+        function mobileMq2(mq2) {
+            if (mq2.matches) {
+                colorDisplay[i].addEventListener("touchstart", function() {
+                    const tooltip = this.querySelector(".tooltiptext");
+                    tooltip.innerText = `click to copy`;
+                    tooltip.style.visibility = visible;
+                    })
+                colorDisplay[i].addEventListener("touchmove", function() {
+                    tooltip.style.visibility = hidden;        
+                })
+                }
+        mobileMq2(mq2);
+        mq2.addEventListener("change", mobileMq2);
+        /*experiment ends*/
 
         function resetScale() {
             colorDisplay[i].style.scale = "1";
@@ -36,6 +53,8 @@ document.getElementById("get-color-scheme").addEventListener("click", function()
         colorDisplay[i].style.cursor = "pointer";
         colorDisplay[i].style.visibility = "visible";
         
+
+
         colorDisplay[i].addEventListener("click", function() {
         const bgColor = this.style.backgroundColor;
         /*here I'm extracting the rgb number values to call the rgb2hex function*/
@@ -78,8 +97,7 @@ function mobileMq1(mq1) {
         document.getElementById("title").innerHTML = "<h1>HexaColor</h1>";
     } else {
         document.getElementById("title").innerText = "";
-    }
-    
+    } 
 }
 /*the following is necessary...but why?*/
 mobileMq1(mq1);
