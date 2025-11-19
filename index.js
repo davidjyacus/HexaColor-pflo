@@ -25,18 +25,30 @@ document.getElementById("get-color-scheme").addEventListener("click", function()
         }
         colorDisplay[i].addEventListener("mouseover", setScale);
         colorDisplay[i].addEventListener("touchstart", setScale);
-        
+        /* experiment 2
+        colorDisplay[i].addEventListener("mouseover", function() {
+            const tooltip = this.querySelector(".tooltiptext");
+            tooltip.innerText = `click to copy`;
+            tooltip.style.visibility = visible;
+            })
+
+            
+        /* experiment 2 ends here*/
+
+
         /*experiment for tooltip in mobile format
         const mq2 = window.matchMedia("(max-width: 767px)");
         function mobileMq2(mq2) {
             if (mq2.matches) {
-                colorDisplay[i].addEventListener("touchstart", function() {
+                colorDisplay[i].addEventListener("mouseover", function() {
                     const tooltip = this.querySelector(".tooltiptext");
                     tooltip.innerText = `click to copy`;
                     tooltip.style.visibility = visible;
                     })
-                colorDisplay[i].addEventListener("touchmove", function() {
-                    tooltip.style.visibility = hidden;        
+                }
+                colorDisplay[i].addEventListener("mouseout", function() {
+                    tooltip.style.visibility = hidden;
+                    document.getElementById("ftr1").style.visibility ="hidden";        
                 })
                 }
         mobileMq2(mq2);
