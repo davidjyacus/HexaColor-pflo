@@ -10,11 +10,6 @@ document.getElementById("get-color-scheme").addEventListener("click", function()
             for (let i = 0; i < data.colors.length; i++) {
                 const hexValue = data.colors[i].hex.value;
                 document.getElementById(`dis${i + 1}`).style.backgroundColor = hexValue;
-                document.getElementById(`ftr${i + 1}`).innerHTML = `
-                    <p id="hex-value">${hexValue}
-                    <span class="tooltiptext">copy hex code</span>
-                    </p>    
-                `;
             }
         })
 
@@ -36,19 +31,18 @@ document.getElementById("get-color-scheme").addEventListener("click", function()
         /* experiment 2 ends here*/
 
 
-        /*experiment for tooltip in mobile format
+        /*experiment for tooltip in mobile 
         const mq2 = window.matchMedia("(max-width: 767px)");
         function mobileMq2(mq2) {
             if (mq2.matches) {
                 colorDisplay[i].addEventListener("mouseover", function() {
                     const tooltip = this.querySelector(".tooltiptext");
-                    tooltip.innerText = `click to copy`;
-                    tooltip.style.visibility = visible;
+                    tooltip[i].innerText = `click to copy`;
+                    /*tooltip.style.visibility = visible;
                     })
                 }
                 colorDisplay[i].addEventListener("mouseout", function() {
-                    tooltip.style.visibility = hidden;
-                    document.getElementById("ftr1").style.visibility ="hidden";        
+                    tooltip.style.visibility = hidden;        
                 })
                 }
         mobileMq2(mq2);
