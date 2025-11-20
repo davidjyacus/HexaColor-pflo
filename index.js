@@ -10,6 +10,11 @@ document.getElementById("get-color-scheme").addEventListener("click", function()
             for (let i = 0; i < data.colors.length; i++) {
                 const hexValue = data.colors[i].hex.value;
                 document.getElementById(`dis${i + 1}`).style.backgroundColor = hexValue;
+                document.getElementById(`ftr${i + 1}`).innerHTML = `
+                    <p id="hex-value">${hexValue}
+                    <span class="tooltiptext">copy hex code</span>
+                    </p>    
+                `;
             }
         })
 
@@ -18,49 +23,45 @@ document.getElementById("get-color-scheme").addEventListener("click", function()
             colorDisplay[i].style.scale = "1.05";
             colorDisplay[i].style.zIndex = "10";
         }
-        colorDisplay[i].addEventListener("mouseover", setScale);
-        colorDisplay[i].addEventListener("touchstart", setScale);
-        /* experiment 2
+        /*colorDisplay[i].addEventListener("mouseover", setScale);*/
         colorDisplay[i].addEventListener("mouseover", function() {
+            setScale()
             const tooltip = this.querySelector(".tooltiptext");
             tooltip.innerText = `click to copy`;
-            tooltip.style.visibility = visible;
-            })
-
-            
-        /* experiment 2 ends here*/
-
-
-        /*experiment for tooltip in mobile 
-        const mq2 = window.matchMedia("(max-width: 767px)");
-        function mobileMq2(mq2) {
-            if (mq2.matches) {
-                colorDisplay[i].addEventListener("mouseover", function() {
-                    const tooltip = this.querySelector(".tooltiptext");
-                    tooltip[i].innerText = `click to copy`;
-                    /*tooltip.style.visibility = visible;
-                    })
-                }
-                colorDisplay[i].addEventListener("mouseout", function() {
-                    tooltip.style.visibility = hidden;        
-                })
-                }
-        mobileMq2(mq2);
-        mq2.addEventListener("change", mobileMq2);
-        /*experiment ends*/
+            tooltip.style.visibility = "visible";
+        })
+        colorDisplay[i].addEventListener("touchstart", setScale);
 
         function resetScale() {
             colorDisplay[i].style.scale = "1";
             colorDisplay[i].style.zIndex = "0";
         }
-        colorDisplay[i].addEventListener("mouseout", resetScale);
+        /*colorDisplay[i].addEventListener("mouseout", resetScale);*/
+        colorDisplay[i].addEventListener("mouseout", function() {
+            resetScale()
+            const tooltip = this.querySelector(".tooltiptext");
+            tooltip.style.visibility = "hidden";        
+        })
         colorDisplay[i].addEventListener("touchmove", resetScale);
 
         colorDisplay[i].style.cursor = "pointer";
         colorDisplay[i].style.visibility = "visible";
-        
+       
+        /*rewriting experiment
 
+        colorDisplay[i].addEventListener("mouseover", function() {
+            const tooltip = this.querySelector(".tooltiptext");
+            tooltip.innerText = `click to copy`;
+            tooltip.style.visibility = visible;
+        })
+        colorDisplay[i].addEventListener("mouseout", function() {
+            const tooltip = this.querySelector(".tooltiptext");
+            tooltip.style.visibility = hidden;        
+        })
 
+        /*end of rewriting experiment*/
+
+        /*commenting out to make new experiment*/
         colorDisplay[i].addEventListener("click", function() {
         const bgColor = this.style.backgroundColor;
         /*here I'm extracting the rgb number values to call the rgb2hex function*/
@@ -74,6 +75,19 @@ document.getElementById("get-color-scheme").addEventListener("click", function()
             resetScale();
         }, 1000);
         })
+        /*end of commented out section*/
+
+/* experiment 2
+        colorDisplay[i].addEventListener("mouseover", function() {
+            const tooltip = this.querySelector(".tooltiptext");
+            tooltip.innerText = `click to copy`;
+            tooltip.style.visibility = visible;
+        })
+        colorDisplay[i].addEventListener("mouseout", function() {
+            const tooltip = this.querySelector(".tooltiptext");
+            tooltip.style.visibility = hidden;        
+        })
+/* experiment 2 ends here*/
     }
 
     for (let i = 0; i < hexFooter.length; i++) {
@@ -124,3 +138,27 @@ function rgb2hex(r, g, b) {
     if (rHex.length > 2 || gHex.length > 2 || bHex.length > 2) return false;
     return '#' + rHex + gHex + bHex;
 }
+
+
+
+
+
+
+
+        /*experiment for tooltip in mobile 
+        const mq2 = window.matchMedia("(max-width: 767px)");
+        function mobileMq2(mq2) {
+            if (mq2.matches) {
+                colorDisplay[i].addEventListener("mouseover", function() {
+                    const tooltip = this.querySelector(".tooltiptext");
+                    tooltip[i].innerText = `click to copy`;
+                    /*tooltip.style.visibility = visible;
+                    })
+                }
+                colorDisplay[i].addEventListener("mouseout", function() {
+                    tooltip.style.visibility = hidden;        
+                })
+                }
+        mobileMq2(mq2);
+        mq2.addEventListener("change", mobileMq2);
+        /*experiment ends*/
