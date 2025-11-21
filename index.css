@@ -143,13 +143,6 @@ select {
     grid-area: ftr5;
 }
 
-/*hover effects*/
-
-#hex-value:hover {
-    scale: 1.05;
-    z-index: 10;
-}
-
 /*tooltip styling*/
 
 .tooltiptext {

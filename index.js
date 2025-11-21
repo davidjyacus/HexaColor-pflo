@@ -23,45 +23,54 @@ document.getElementById("get-color-scheme").addEventListener("click", function()
             colorDisplay[i].style.scale = "1.05";
             colorDisplay[i].style.zIndex = "10";
         }
-        /*colorDisplay[i].addEventListener("mouseover", setScale);*/
+        
         colorDisplay[i].addEventListener("mouseover", function() {
+            const bgColor = this.style.backgroundColor;
             setScale()
             const tooltip = this.querySelector(".tooltiptext");
-            tooltip.innerText = `click to copy`;
+            tooltip.innerText = `${rgb2hex(...bgColor.match(/\d+/g))} click to copy`;
             tooltip.style.visibility = "visible";
         })
-        colorDisplay[i].addEventListener("touchstart", setScale);
+        colorDisplay[i].addEventListener("touchstart", function() {
+            const bgColor = this.style.backgroundColor;
+            setScale();
+            const tooltip = this.querySelector(".tooltiptext");
+            tooltip.innerText = `${rgb2hex(...bgColor.match(/\d+/g))} click to copy`;
+            tooltip.style.visibility = "visible";
+        })
+        /*new function idea for dryer code
+        function tooltipVis() {
+            const bgColor = this.style.backgroundColor;
+            const tooltip = this.querySelector(".tooltiptext");
+            tooltip.innerText = `${rgb2hex(...bgColor.match(/\d+/g))} click to copy`;
+            tooltip.style.visibility = "visible";
+            experiment here with commenting out
+            colorDisplay[i].style.scale = "1.05";
+            colorDisplay[i].style.zIndex = "10";
+        }
+        colorDisplay[i].addEventListener("mouseover", tooltipVis())
+        colorDisplay[i].addEventListener("touchstart", tooltipVis())
+        new function idea ends here...still doesn't work...*/
 
         function resetScale() {
             colorDisplay[i].style.scale = "1";
             colorDisplay[i].style.zIndex = "0";
         }
-        /*colorDisplay[i].addEventListener("mouseout", resetScale);*/
         colorDisplay[i].addEventListener("mouseout", function() {
             resetScale()
             const tooltip = this.querySelector(".tooltiptext");
-            tooltip.style.visibility = "hidden";        
+            tooltip.style.visibility = "hidden";       
         })
-        colorDisplay[i].addEventListener("touchmove", resetScale);
+        colorDisplay[i].addEventListener("touchmove", function() {
+            resetScale()
+            const tooltip = this.querySelector(".tooltiptext");
+            tooltip.style.visibility = "hidden";       
+        })
 
         colorDisplay[i].style.cursor = "pointer";
-        colorDisplay[i].style.visibility = "visible";
-       
-        /*rewriting experiment
+        /* don't remember why I did this...seems to work without
+        colorDisplay[i].style.visibility = "visible";*/
 
-        colorDisplay[i].addEventListener("mouseover", function() {
-            const tooltip = this.querySelector(".tooltiptext");
-            tooltip.innerText = `click to copy`;
-            tooltip.style.visibility = visible;
-        })
-        colorDisplay[i].addEventListener("mouseout", function() {
-            const tooltip = this.querySelector(".tooltiptext");
-            tooltip.style.visibility = hidden;        
-        })
-
-        /*end of rewriting experiment*/
-
-        /*commenting out to make new experiment*/
         colorDisplay[i].addEventListener("click", function() {
         const bgColor = this.style.backgroundColor;
         /*here I'm extracting the rgb number values to call the rgb2hex function*/
@@ -75,23 +84,42 @@ document.getElementById("get-color-scheme").addEventListener("click", function()
             resetScale();
         }, 1000);
         })
-        /*end of commented out section*/
-
-/* experiment 2
-        colorDisplay[i].addEventListener("mouseover", function() {
-            const tooltip = this.querySelector(".tooltiptext");
-            tooltip.innerText = `click to copy`;
-            tooltip.style.visibility = visible;
-        })
-        colorDisplay[i].addEventListener("mouseout", function() {
-            const tooltip = this.querySelector(".tooltiptext");
-            tooltip.style.visibility = hidden;        
-        })
-/* experiment 2 ends here*/
     }
 
     for (let i = 0; i < hexFooter.length; i++) {
-    hexFooter[i].addEventListener("click", function() {
+        function setFtrScale() {
+            hexFooter[i].style.scale = "1.05";
+            hexFooter[i].style.zIndex = "10";
+        };
+        hexFooter[i].addEventListener("mouseover", function() {
+            setFtrScale();
+            const tooltip = this.querySelector(".tooltiptext");
+            tooltip.innerText = `click to copy`;
+            tooltip.style.visibility = "visible";
+        });
+        hexFooter[i].addEventListener("touchstart", function() {
+            setFtrScale();
+            const tooltip = this.querySelector(".tooltiptext");
+            tooltip.innerText = `click to copy`;
+            tooltip.style.visibility = "visible";
+        });
+
+        function resetScale() {
+            hexFooter[i].style.scale = "1";
+            hexFooter[i].style.zIndex = "0";
+        };
+        hexFooter[i].addEventListener("mouseout", function() {
+            resetScale();
+            const tooltip = this.querySelector(".tooltiptext");
+            tooltip.style.visibility = "hidden";        
+        });
+        hexFooter[i].addEventListener("touchmove", function() {
+            resetScale();
+            const tooltip = this.querySelector(".tooltiptext");
+            tooltip.style.visibility = "hidden";        
+        });
+
+        hexFooter[i].addEventListener("click", function() {
         const hexText = this.innerText.substring(0, 7);
         navigator.clipboard.writeText(hexText);
         const tooltip = this.querySelector(".tooltiptext");
@@ -110,7 +138,6 @@ document.getElementById("close-btn").addEventListener("click", function() {
     document.getElementById("colors").style.backgroundColor ="#f8f8f8";
 });
 
-/*media query experiment*/
 const mq1 = window.matchMedia("(min-width: 768px)");
 function mobileMq1(mq1) {
     if (mq1.matches) {
@@ -122,7 +149,6 @@ function mobileMq1(mq1) {
 /*the following is necessary...but why?*/
 mobileMq1(mq1);
 mq1.addEventListener("change", mobileMq1);
-/*mq experiment ends here*/
 
 /* RGB to HEX conversion function from Nimish Prabhu: 
 https://nimishprabhu.com/convert-rgb-to-hex-and-hex-to-rgb-javascript-online-demo.html */
@@ -138,27 +164,3 @@ function rgb2hex(r, g, b) {
     if (rHex.length > 2 || gHex.length > 2 || bHex.length > 2) return false;
     return '#' + rHex + gHex + bHex;
 }
-
-
-
-
-
-
-
-        /*experiment for tooltip in mobile 
-        const mq2 = window.matchMedia("(max-width: 767px)");
-        function mobileMq2(mq2) {
-            if (mq2.matches) {
-                colorDisplay[i].addEventListener("mouseover", function() {
-                    const tooltip = this.querySelector(".tooltiptext");
-                    tooltip[i].innerText = `click to copy`;
-                    /*tooltip.style.visibility = visible;
-                    })
-                }
-                colorDisplay[i].addEventListener("mouseout", function() {
-                    tooltip.style.visibility = hidden;        
-                })
-                }
-        mobileMq2(mq2);
-        mq2.addEventListener("change", mobileMq2);
-        /*experiment ends*/
