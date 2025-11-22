@@ -1,10 +1,11 @@
 const colorDisplay = document.getElementsByClassName("color-display");
 const hexFooter = document.getElementsByClassName("hex-footer")
+
 document.getElementById("get-color-scheme").addEventListener("click", function() {
     const seedColor = document.getElementById("seed-color").value;
     const colorScheme = document.getElementById("select-menu").value;
     fetch(`https://www.thecolorapi.com/scheme?hex=${seedColor.substring(1)}&mode=${colorScheme}&count=5`)
-        
+
         .then(response => response.json())
         .then(data => {
             for (let i = 0; i < data.colors.length; i++) {
@@ -18,54 +19,27 @@ document.getElementById("get-color-scheme").addEventListener("click", function()
             }
         })
 
+/*I thought I had resolved all issues with a drier code, but now with Chrome mobile view it doesn't work*/
     for (let i = 0; i < colorDisplay.length; i++) {
-        function setScale() {
+        function setTooltip() {
             colorDisplay[i].style.scale = "1.05";
-            colorDisplay[i].style.zIndex = "10";
+            colorDisplay[i].style.zIndex = "10"; 
+            const tooltip = colorDisplay[i].querySelector(".tooltiptext");
+            const bgColor = colorDisplay[i].style.backgroundColor;
+            tooltip.innerText = `${rgb2hex(...bgColor.match(/\d+/g))} click to copy`;
+            tooltip.style.visibility = "visible";
         }
-        
-        colorDisplay[i].addEventListener("mouseover", function() {
-            const bgColor = this.style.backgroundColor;
-            setScale()
-            const tooltip = this.querySelector(".tooltiptext");
-            tooltip.innerText = `${rgb2hex(...bgColor.match(/\d+/g))} click to copy`;
-            tooltip.style.visibility = "visible";
-        })
-        colorDisplay[i].addEventListener("touchstart", function() {
-            const bgColor = this.style.backgroundColor;
-            setScale();
-            const tooltip = this.querySelector(".tooltiptext");
-            tooltip.innerText = `${rgb2hex(...bgColor.match(/\d+/g))} click to copy`;
-            tooltip.style.visibility = "visible";
-        })
-        /*new function idea for dryer code
-        function tooltipVis() {
-            const bgColor = this.style.backgroundColor;
-            const tooltip = this.querySelector(".tooltiptext");
-            tooltip.innerText = `${rgb2hex(...bgColor.match(/\d+/g))} click to copy`;
-            tooltip.style.visibility = "visible";
-            experiment here with commenting out
-            colorDisplay[i].style.scale = "1.05";
-            colorDisplay[i].style.zIndex = "10";
-        }
-        colorDisplay[i].addEventListener("mouseover", tooltipVis())
-        colorDisplay[i].addEventListener("touchstart", tooltipVis())
-        new function idea ends here...still doesn't work...*/
+        colorDisplay[i].addEventListener("mouseover", setTooltip);
+        colorDisplay[i].addEventListener("touchstart", setTooltip);
 
-        function resetScale() {
+        function resetTooltip() {
             colorDisplay[i].style.scale = "1";
             colorDisplay[i].style.zIndex = "0";
+            const tooltip = colorDisplay[i].querySelector(".tooltiptext");
+            tooltip.style.visibility = "hidden";
         }
-        colorDisplay[i].addEventListener("mouseout", function() {
-            resetScale()
-            const tooltip = this.querySelector(".tooltiptext");
-            tooltip.style.visibility = "hidden";       
-        })
-        colorDisplay[i].addEventListener("touchmove", function() {
-            resetScale()
-            const tooltip = this.querySelector(".tooltiptext");
-            tooltip.style.visibility = "hidden";       
-        })
+        colorDisplay[i].addEventListener("mouseout", resetTooltip);
+        colorDisplay[i].addEventListener("touchmove", resetTooltip);
 
         colorDisplay[i].style.cursor = "pointer";
         /* don't remember why I did this...seems to work without
