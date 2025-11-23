@@ -12,12 +12,13 @@ body {
 /*typography and layout*/
 
 #header {
-    margin: 0 auto;
+    margin: 0 auto 0.75em auto;
     max-width: 320px;
     height: 140px;
-    margin-bottom: 1.25em;
-    padding-bottom: 1.5em;
+    padding: 0.25em;
     text-align: center;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
 }
 
 #header, #colors {
@@ -30,9 +31,8 @@ h1 {
 }
 
 #header-txt {
-    border: blue 1px dashed;
     padding: auto 1.25em 1.25em 1.25em;
-    
+    margin: 0.5em;
 }
 
 p {
@@ -41,6 +41,9 @@ p {
 
 #colors {
     margin: auto;
+    padding: 0;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
     max-width: 320px;
     height: 550px;
     display: grid;
@@ -52,7 +55,6 @@ p {
 
 main {
     grid-area: main;
-    /*max-width: 320px;*/
     height: 160px;
 }
 
@@ -79,10 +81,6 @@ select {
     text-align: center;
 }
 
-/*label[for="select-menu"] {
-    visibility: hidden;
-}*/
-
 .color-display,
 .hex-footer {
     position: relative;
@@ -90,14 +88,14 @@ select {
 }
 
 .color-display {
-    height: 385px;
+    height: 390px;
 }
 
 .hex-footer {
     visibility: hidden;
     height: 45px;
     text-align: center;
-    border: green 1px dashed;
+    margin-top: 0;
 }
 
 #hex-value {
@@ -180,7 +178,7 @@ select {
     z-index: 20;
     left: 0;
     right: 0;
-    top: -20em;
+    top: -15em;
     bottom: 0;
     margin: auto;
     height: 400px;
@@ -194,16 +192,6 @@ select {
     margin: 1em;
 }
 
-/*more experimentation
-
-@media (max-width: 767px) {
-    .color-display:hover .tooltiptext {
-        visibility: visible;
-    }
-}
-
-/*ends here*/
-
 @media(min-width: 768px) {
     #colors {
         max-width: 550px;
@@ -215,12 +203,18 @@ select {
     
     #header {
         max-width: 550px;
+        padding: 0;
+        /*margin-bottom: 0.125em;*/
+    }
+
+    h1 {
+        padding-top: 0.125em;
     }
 
     #header p {
-        margin: 0 0.4em;
+        margin: 0.25em;
     }
-
+    
     .color-input {
         display: flex;
         flex-direction: row;

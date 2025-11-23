@@ -19,7 +19,7 @@ document.getElementById("get-color-scheme").addEventListener("click", function()
             }
         })
 
-/*I thought I had resolved all issues with a drier code, but now with Chrome mobile view it doesn't work*/
+/*I thought I had resolved all issues with a DRYer code, but now with Chrome mobile view it doesn't work*/
     for (let i = 0; i < colorDisplay.length; i++) {
         function setTooltip() {
             colorDisplay[i].style.scale = "1.05";
@@ -42,8 +42,6 @@ document.getElementById("get-color-scheme").addEventListener("click", function()
         colorDisplay[i].addEventListener("touchmove", resetTooltip);
 
         colorDisplay[i].style.cursor = "pointer";
-        /* don't remember why I did this...seems to work without
-        colorDisplay[i].style.visibility = "visible";*/
 
         colorDisplay[i].addEventListener("click", function() {
         const bgColor = this.style.backgroundColor;
