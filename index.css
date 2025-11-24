@@ -36,7 +36,7 @@ h1 {
 }
 
 p {
-    margin: 1px;
+    margin: 0.0625em;
 }
 
 #colors {
@@ -45,7 +45,6 @@ p {
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
     max-width: 320px;
-    /*height: 550px;*/
     height: 250px;
     display: grid;
     grid-template-areas: 
@@ -89,7 +88,6 @@ select {
 }
 
 .color-display {
-    /*height: 390px;*/
     height: 250px;
 }
 
@@ -164,7 +162,6 @@ select {
     opacity: 0.8;
 }
 
-/*experiment for tooltip placement in first and last color boxes*/
 #dis1 .tooltiptext {
     left: 0%;
     margin-left: 0.25em;
@@ -175,7 +172,6 @@ select {
     margin-left: auto;
     margin-right: 0.25em;
 }
-/*experiment ends*/
 
 .tooltiptext::after {
   content: " ";
@@ -224,7 +220,6 @@ select {
         max-width: 550px;
         height: 150px;
         padding: 0;
-        /*margin-bottom: 0.125em;*/
     }
 
     h1 {

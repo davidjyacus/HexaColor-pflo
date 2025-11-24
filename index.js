@@ -18,8 +18,7 @@ document.getElementById("get-color-scheme").addEventListener("click", function()
                 `;
             }
         })
-
-/*I thought I had resolved all issues with a DRYer code, but now with Chrome mobile view it doesn't work*/
+        
     for (let i = 0; i < colorDisplay.length; i++) {
         function setTooltip() {
             colorDisplay[i].style.scale = "1.05";
