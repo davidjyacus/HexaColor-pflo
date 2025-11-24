@@ -38,7 +38,7 @@ document.getElementById("get-color-scheme").addEventListener("click", function()
             tooltip.style.visibility = "hidden";
         }
         colorDisplay[i].addEventListener("mouseout", resetTooltip);
-        colorDisplay[i].addEventListener("touchmove", resetTooltip);
+        colorDisplay[i].addEventListener("touchend", resetTooltip);
 
         colorDisplay[i].style.cursor = "pointer";
 
