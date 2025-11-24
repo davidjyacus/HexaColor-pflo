@@ -62,7 +62,12 @@ main {
     display: flex;
     flex-direction: column;
     align-items: center;
-    /*experiment disabling text selection*/
+}
+
+/*experiment disabling text selection*/
+.color-input,
+.tooltiptext,
+#hex-value {
     -webkit-user-select: none; /* Safari */
     -ms-user-select: none; /* IE 10 and IE 11 */
     user-select: none; /* Standard syntax */
