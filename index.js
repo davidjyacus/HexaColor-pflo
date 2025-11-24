@@ -53,7 +53,7 @@ document.getElementById("get-color-scheme").addEventListener("click", function()
         setTimeout(() => {
             tooltip.style.visibility = "hidden";
             /*reset scale and z-index in case of mobile touch*/
-            resetScale();
+            resetTooltip();
         }, 1000);
         })
     }

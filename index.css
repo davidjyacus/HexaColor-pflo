@@ -46,7 +46,7 @@ p {
     border-bottom-right-radius: 5px;
     max-width: 320px;
     /*height: 550px;*/
-    height: 310px;
+    height: 250px;
     display: grid;
     grid-template-areas: 
             "main main main main main"
@@ -89,7 +89,8 @@ select {
 }
 
 .color-display {
-    height: 390px;
+    /*height: 390px;*/
+    height: 250px;
 }
 
 .hex-footer {
@@ -109,6 +110,7 @@ select {
 #dis1 {
     grid-area: dis1;
     background-color: #22bc17;
+    border-bottom-left-radius: 5px;
 }
 #dis2 {
     grid-area: dis2;
@@ -125,6 +127,7 @@ select {
 #dis5 {
     grid-area: dis5;
     background-color:#15B9D3;
+    border-bottom-right-radius: 5px;
 }
 
 #ftr1 {
@@ -254,6 +257,13 @@ select {
 
     .color-display {
         height: 415px;
+    }
+
+    #dis1 {
+        border-bottom-left-radius: 0;
+    }
+    #dis5 {
+        border-bottom-right-radius: 0;
     }
 
     .hex-footer {
