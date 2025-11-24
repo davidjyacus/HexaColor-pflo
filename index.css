@@ -65,6 +65,7 @@ main {
 }
 
 /*experiment disabling text selection*/
+.header,
 .color-input,
 .tooltiptext,
 #hex-value {
