@@ -65,7 +65,7 @@ main {
 }
 
 /*experiment disabling text selection*/
-.header,
+#header-txt,
 main,
 .tooltiptext,
 .hex-footer {
