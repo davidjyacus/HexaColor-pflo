@@ -26,7 +26,7 @@ document.getElementById("get-color-scheme").addEventListener("click", function()
             colorDisplay[i].style.zIndex = "10"; 
             const tooltip = colorDisplay[i].querySelector(".tooltiptext");
             const bgColor = colorDisplay[i].style.backgroundColor;
-            tooltip.innerText = `${rgb2hex(...bgColor.match(/\d+/g))} click to copy`;
+            tooltip.innerHTML = `${rgb2hex(...bgColor.match(/\d+/g))}<br>click to copy`;
             tooltip.style.visibility = "visible";
         }
         colorDisplay[i].addEventListener("mouseover", setTooltip);

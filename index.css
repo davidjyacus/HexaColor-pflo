@@ -14,7 +14,7 @@ body {
 #header {
     margin: 0 auto 0.75em auto;
     max-width: 320px;
-    height: 140px;
+    height: 170px;
     padding: 0.25em;
     text-align: center;
     border-top-left-radius: 5px;
@@ -45,7 +45,8 @@ p {
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
     max-width: 320px;
-    height: 550px;
+    /*height: 550px;*/
+    height: 310px;
     display: grid;
     grid-template-areas: 
             "main main main main main"
@@ -96,10 +97,11 @@ select {
     height: 45px;
     text-align: center;
     margin-top: 0;
+    padding-top: 0.625em;
 }
 
 #hex-value {
-    cursor: pointer; 
+    cursor: pointer;
 }
 
 /*grid areas*/
@@ -159,6 +161,19 @@ select {
     opacity: 0.8;
 }
 
+/*experiment for tooltip placement in first and last color boxes*/
+#dis1 .tooltiptext {
+    left: 0%;
+    margin-left: 0.25em;
+}
+#dis5 .tooltiptext {
+    left: auto;
+    right: 0%;
+    margin-left: auto;
+    margin-right: 0.25em;
+}
+/*experiment ends*/
+
 .tooltiptext::after {
   content: " ";
   position: absolute;
@@ -195,6 +210,7 @@ select {
 @media(min-width: 768px) {
     #colors {
         max-width: 550px;
+        height: 550px;
     }
 
     main {
@@ -203,6 +219,7 @@ select {
     
     #header {
         max-width: 550px;
+        height: 150px;
         padding: 0;
         /*margin-bottom: 0.125em;*/
     }
