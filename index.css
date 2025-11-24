@@ -202,8 +202,8 @@ select {
     z-index: 20;
     left: 0;
     right: 0;
-    top: 0;
-    bottom: 15em;
+    top: -15em;
+    bottom: 0;
     margin: auto;
     height: 400px;
     max-width: 300px;
