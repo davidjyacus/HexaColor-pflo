@@ -38,14 +38,7 @@ document.getElementById("get-color-scheme").addEventListener("click", function()
             tooltip.style.visibility = "hidden";
         }
         colorDisplay[i].addEventListener("mouseout", resetTooltip);
-        /*colorDisplay[i].addEventListener("touchmove", resetTooltip);*/
-        colorDisplay[i].addEventListener("touchmove", function() {
-            /*reset scale and z-index in case of mobile touch*/
-            /*colorDisplay[i].style.scale = "1";
-            colorDisplay[i].style.zIndex = "0";*/
-            const tooltip = colorDisplay[i].querySelector(".tooltiptext");
-            tooltip.style.visibility = "hidden";
-        });
+        colorDisplay[i].addEventListener("touchmove", resetTooltip);
 
         colorDisplay[i].style.cursor = "pointer";
 
