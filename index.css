@@ -65,16 +65,8 @@ main {
 }
 
 /*experiment disabling text selection*/
-/*header,
-#seed-color,
-#select-menu,
-#get-color-scheme,
-.tooltiptext,
-#hex-value*/ 
 header,
-input,
-select,
-button {
+.color-input {
     -webkit-user-select: none; /* Safari*/ 
     -ms-user-select: none; /* IE 10 and IE 11*/ 
     user-select: none; /* Standard syntax*/ 
