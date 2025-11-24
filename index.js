@@ -41,7 +41,8 @@ document.getElementById("get-color-scheme").addEventListener("click", function()
         /*colorDisplay[i].addEventListener("touchmove", resetTooltip);*/
         colorDisplay[i].addEventListener("touchmove", function() {
             /*reset scale and z-index in case of mobile touch*/
-            resetTooltip();
+            colorDisplay[i].style.scale = "1";
+            colorDisplay[i].style.zIndex = "0";
         });
 
         colorDisplay[i].style.cursor = "pointer";
