@@ -1,6 +1,22 @@
 const colorDisplay = document.getElementsByClassName("color-display");
 const hexFooter = document.getElementsByClassName("hex-footer")
 
+
+for (let i = 1; i < 6; i++) {
+    document.getElementById("display-area").innerHTML += `
+    <div id="dis${i}" class="color-display">
+        <span class="tooltiptext"></span>
+    </div>
+    `
+    document.getElementById("footer-area").innerHTML += `
+    <div id="ftr${i}" class="hex-footer">
+        <p id="hex-value">
+            <span class="tooltiptext"></span>
+        </p>
+    </div>
+    `
+}
+
 document.getElementById("get-color-scheme").addEventListener("click", function() {
     const seedColor = document.getElementById("seed-color").value;
     const colorScheme = document.getElementById("select-menu").value;
@@ -18,7 +34,7 @@ document.getElementById("get-color-scheme").addEventListener("click", function()
                 `;
             }
         })
-         
+
     for (let i = 0; i < colorDisplay.length; i++) {
         function setTooltip() {
             colorDisplay[i].style.scale = "1.05";
