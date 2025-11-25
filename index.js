@@ -18,7 +18,7 @@ document.getElementById("get-color-scheme").addEventListener("click", function()
                 `;
             }
         })
-        
+         
     for (let i = 0; i < colorDisplay.length; i++) {
         function setTooltip() {
             colorDisplay[i].style.scale = "1.05";
@@ -38,15 +38,7 @@ document.getElementById("get-color-scheme").addEventListener("click", function()
             tooltip.style.visibility = "hidden";
         }
         colorDisplay[i].addEventListener("mouseout", resetTooltip);
-        /*colorDisplay[i].addEventListener("touchmove", resetTooltip);*/
-        /* for tablets*/
-        colorDisplay[i].addEventListener("touchmove", function(){
-            resetTooltip();
-            document.getElementById("header").style.userSelect = "auto"
-            document.getElementById("color-input").style.userSelect = "auto"
-            hexFooter[i].style.userSelect = "auto"
-
-        })
+        colorDisplay[i].addEventListener("touchmove", resetTooltip);
         colorDisplay[i].style.cursor = "pointer";
 
         colorDisplay[i].addEventListener("click", function() {
